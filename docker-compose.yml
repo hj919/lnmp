@@ -57,7 +57,7 @@ services:
     links:
       - mysql
       - redis
-      -
+
   ### Mysql container #########################################
 
   mysql:
