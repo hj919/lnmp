@@ -57,7 +57,7 @@ services:
       - ./components/php/log:/var/log:rw
     restart: always
     privileged: true
-    links:
+    networks:
       - backend
 
   ### Mysql container #########################################
