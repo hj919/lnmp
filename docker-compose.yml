@@ -130,6 +130,7 @@ services:
       - ./components/tools/start.sh:/home/start.sh:rw
       - ./backup:/backup:rw
       - ./components/tools/cron.d:/etc/cron.d:rw
+      - ./components/tools/my.cnf:/etc/my.cnf:ro
     restart: always
     privileged: true
     networks:
