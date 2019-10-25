@@ -38,7 +38,7 @@ services:
       - net-php
       - net-mysql
       - net-redis
-      -
+
   ### 720dt container #########################################
 
   720dt:
@@ -48,7 +48,7 @@ services:
         TIME_ZONE: ${GLOBAL_TIME_ZONE}
         CHANGE_SOURCE: ${GLOBAL_CHANGE_SOURCE}
     volumes:
-      - ${PROJECT_FOLDER}/hello:/etc/nginx/html:rw
+      - ${PROJECT_FOLDER}/720dt/htdocs:/etc/nginx/html:rw
       - ./components/php/config/php.ini:/usr/local/etc/php/php.ini:ro
       - ./components/php/config/php-fpm.conf:/usr/local/etc/php-fpm.d/www.conf:rw
       - ./components/php/log:/var/log:rw
