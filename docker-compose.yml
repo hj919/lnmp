@@ -120,6 +120,7 @@ services:
 
   ### Tools container #########################################
   tools:
+    container_name: tools
     build:
       context: ./build/tools
       args:
