@@ -82,7 +82,6 @@ services:
       PMA_HOST: mysql
     networks:
       - net-pma
-      - net-nginx
 
   ### Tools container #########################################
 
