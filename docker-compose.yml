@@ -76,12 +76,11 @@ services:
     image: phpmyadmin/phpmyadmin
     restart: always
     privileged: true
-    depends_on:
-      - mysql
     environment:
       PMA_HOST: mysql
     networks:
       - net-pma
+      - net-mysql
 
   ### Tools container #########################################
 
