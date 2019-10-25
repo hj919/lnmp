@@ -85,9 +85,10 @@ services:
   ### jenkins container #########################################
 
   jenkins:
-    restart: always
     image: jenkins/jenkins:lts
     container_name: jenkins
+    privileged: true
+    restart: always
     ports:
       - '8080:8080'
       - '50000:50000'
