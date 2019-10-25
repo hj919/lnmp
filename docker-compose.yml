@@ -81,6 +81,7 @@ services:
     environment:
       PMA_HOST: mysql
     networks:
+      - net-pma
       - net-nginx
 
   ### Tools container #########################################
@@ -106,3 +107,4 @@ networks:
   net-php:
   net-mysql:
   net-redis:
+  net-pma:
