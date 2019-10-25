@@ -104,7 +104,7 @@ services:
         CHANGE_SOURCE: ${GLOBAL_CHANGE_SOURCE}
     volumes:
       - ./work/components/tools/start.sh:/home/start.sh:rw
-      - ./work/components/tools/backup:/backup:rw
+      - ./backup:/backup:rw
       - ./work/components/tools/cron.d:/etc/cron.d:rw
     restart: always
     privileged: true
