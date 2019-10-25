@@ -20,8 +20,8 @@ services:
     links:
       - 720dt
     networks:
-      - net-php
-      - net-pma
+      - backend
+      - frontend
 
   ### PHP container #########################################
 
@@ -39,9 +39,7 @@ services:
     restart: always
     privileged: true
     networks:
-      - net-php
-      - net-mysql
-      - net-redis
+      - backend
 
   ### 720dt container #########################################
 
@@ -60,8 +58,7 @@ services:
     restart: always
     privileged: true
     links:
-      - mysql
-      - redis
+      - backend
 
   ### Mysql container #########################################
 
@@ -79,7 +76,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
     networks:
-      - net-mysql
+      - backend
 
   ### Redis container #########################################
 
@@ -94,7 +91,7 @@ services:
     restart: always
     privileged: true
     networks:
-      - net-redis
+      - backend
 
   ### pma container #########################################
 
@@ -106,8 +103,7 @@ services:
     environment:
       PMA_HOST: mysql
     networks:
-      - net-pma
-      - net-mysql
+      - backend
 
   ### jenkins container #########################################
 
@@ -136,12 +132,10 @@ services:
     restart: always
     privileged: true
     networks:
-      - net-php
-      - net-mysql
-      - net-redis
+      - backend
 
 networks:
-  net-php:
-  net-mysql:
-  net-redis:
-  net-pma:
+  frontend:
+    driver: "bridge"
+  backend:
+    driver: "bridge"
