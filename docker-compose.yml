@@ -16,6 +16,8 @@ services:
       - ./components/nginx/log:/var/log/nginx:rw
     restart: always
     privileged: true
+    depends_on:
+      - 720dt
     networks:
       - net-php
       - net-pma
