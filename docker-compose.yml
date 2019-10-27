@@ -59,6 +59,23 @@ services:
     privileged: true
     networks:
       - backend
+  ### PHP container #########################################
+
+  mimi:
+    build:
+      context: ./build/php
+      args:
+        TIME_ZONE: ${GLOBAL_TIME_ZONE}
+        CHANGE_SOURCE: ${GLOBAL_CHANGE_SOURCE}
+    volumes:
+      - ${PROJECT_FOLDER}/mimi:/etc/nginx/html:rw
+      - ./components/php/config/php.ini:/usr/local/etc/php/php.ini:ro
+      - ./components/php/config/php-fpm.conf:/usr/local/etc/php-fpm.d/www.conf:rw
+      - ./components/php/log:/var/log:rw
+    restart: always
+    privileged: true
+    networks:
+      - backend
 
   ### Mysql container #########################################
 
