@@ -77,7 +77,8 @@ services:
     privileged: true
     networks:
       - backend
-  ### PHP mimi container #########################################
+
+  ### PHP jjhykx container #########################################
 
   hxmkl-xjjj:
     container_name: hxmkl-xjjj
@@ -95,6 +96,26 @@ services:
     privileged: true
     networks:
       - backend
+      -
+  ### PHP 保险小程序 container #########################################
+
+  baoxian:
+    container_name: baoxian
+    build:
+      context: ./build/php
+      args:
+        TIME_ZONE: ${GLOBAL_TIME_ZONE}
+        CHANGE_SOURCE: ${GLOBAL_CHANGE_SOURCE}
+    volumes:
+      - ${PROJECT_FOLDER}/baoxian/backend:/etc/nginx/html:rw
+      - ./components/php/config/php.ini:/usr/local/etc/php/php.ini:ro
+      - ./components/php/config/php-fpm.conf:/usr/local/etc/php-fpm.d/www.conf:rw
+      - ./components/php/log:/var/log:rw
+    restart: always
+    privileged: true
+    networks:
+      - backend
+
   ### Mysql container #########################################
 
   mysql:
