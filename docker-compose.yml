@@ -96,7 +96,7 @@ services:
     privileged: true
     networks:
       - backend
-      -
+
   ### PHP 保险小程序 container #########################################
 
   baoxian:
